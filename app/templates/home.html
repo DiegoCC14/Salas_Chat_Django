@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <title>Sala de Chats</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+</head>
+
+<body>
+
+    <div class="">
+        <a class="btn btn-outline-success tm-search-btn" href="{% url 'logout' %}" >Logout</a>
+        <a class="btn btn-outline-success tm-search-btn" href="{% url 'admin:index' %}" target="_blank" >Ad. Chats</a>
+    </div>
+    
+    <div class="container-fluid tm-container-content tm-mt-60">
+        <div class="row mb-4">
+            
+            <h2 class="col-6 tm-text-primary">
+                Salas de Chats
+            </h2>
+
+        </div>
+
+        <div class="row tm-mb-90 tm-gallery">
+
+            <!-- ------------------------------------------------------------ -->
+            <!-- Element "hidden"-->
+                    	
+            <div id="Div_Sala_Chat_User" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5" hidden>
+                <a id="acceso_a_sala_chat" href="{% url 'chat' 0 %}">
+
+                    <figure class="tm-video-item">
+                        
+                        <img class="img-fluid" src="{% static 'img/grupo_chat_image.jpg' %}">
+                        
+                        <h2>Chat N</h2>
+                        <h5 id="id_sala_chat" name="id_sala_chat">58449</h5>
+
+                    </figure>
+                </a>
+                
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span id="fecha_creacion">18 Oct 2020</span>
+                </div>
+
+                <div class="d-flex justify-content-between tm-text-gray">
+                    <span>Administrador: <span id="es_administrador"> False </span> </span>
+                </div>
+
+            </div>
+
+
+            <!-- ------------------------------------------------------------ -->
+
+        </div> <!-- row -->
+
+    </div> <!-- container-fluid, tm-container-content -->
+    
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{% static 'js/home_js.js' %}"></script>
+    
+    <script>
+        var CSRF_TOKEN = '{{ csrf_token }}'
+        var url_sala_chats_user = '{% url "home" %}'
+        var url_sala_chat = '{% url "chat" 0 %}'
+        var lista_divs_sala_chats = []
+    </script>
+
+</body>
+</html>
